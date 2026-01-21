@@ -107,7 +107,7 @@
         // Add Milky Way background sphere
         const milkyWayGeometry = new THREE.SphereGeometry(2000, 64, 64);
         const milkyWayTexture = textureLoader.load(
-            './2k_stars_milky_way.jpg',
+            './texture/2k_stars_milky_way.jpg',
             () => console.log('✓ Milky Way texture loaded'),
             undefined,
             () => console.error('✗ Milky Way texture failed to load')
@@ -136,12 +136,12 @@
         // Create Sun
         const sunGeometry = new THREE.SphereGeometry(30, 64, 64);
         const sunTexture = textureLoader.load(
-            './2k_sun.jpg',
+            './texture/2k_sun.jpg',
             () => console.log('✓ Sun texture loaded'),
             undefined,
             (err) => {
                 console.error('✗ Sun texture failed to load');
-                console.log('Attempted path: ./2k_sun.jpg');
+                console.log('Attempted path: ./texture/2k_sun.jpg');
                 console.log('Page URL:', window.location.href);
             }
         );
@@ -213,17 +213,17 @@
             // Create planet
             const planetGeometry = new THREE.SphereGeometry(data.size, 64, 64);
             
-            // Get texture path (files at root level, not in texture folder)
+            // Get texture path
             let texturePath = '';
             switch(data.name) {
-                case 'Mercury': texturePath = './2k_mercury.jpg'; break;
-                case 'Venus': texturePath = './2k_venus_surface.jpg'; break;
-                case 'Earth': texturePath = './2k_earth_daymap.jpg'; break;
-                case 'Mars': texturePath = './2k_mars.jpg'; break;
-                case 'Jupiter': texturePath = './2k_jupiter.jpg'; break;
-                case 'Saturn': texturePath = './2k_saturn.jpg'; break;
-                case 'Uranus': texturePath = './2k_uranus.jpg'; break;
-                case 'Neptune': texturePath = './2k_neptune.jpg'; break;
+                case 'Mercury': texturePath = './texture/2k_mercury.jpg'; break;
+                case 'Venus': texturePath = './texture/2k_venus_surface.jpg'; break;
+                case 'Earth': texturePath = './texture/2k_earth_daymap.jpg'; break;
+                case 'Mars': texturePath = './texture/2k_mars.jpg'; break;
+                case 'Jupiter': texturePath = './texture/2k_jupiter.jpg'; break;
+                case 'Saturn': texturePath = './texture/2k_saturn.jpg'; break;
+                case 'Uranus': texturePath = './texture/2k_uranus.jpg'; break;
+                case 'Neptune': texturePath = './texture/2k_neptune.jpg'; break;
             }
             
             const planetTexture = textureLoader.load(
@@ -250,7 +250,7 @@
             // Saturn rings
             if (data.name === 'Saturn') {
                 const ringGeometry = new THREE.RingGeometry(data.size * 1.5, data.size * 2.2, 64);
-                const ringTexture = textureLoader.load('./2k_saturn_ring_alpha.png');
+                const ringTexture = textureLoader.load('./texture/2k_saturn_ring_alpha.png');
                 const ringMaterial = new THREE.MeshStandardMaterial({
                     map: ringTexture,
                     side: THREE.DoubleSide,
